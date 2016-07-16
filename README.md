@@ -33,3 +33,7 @@ java -jar javaproject.jar xxx
 指定哪一个类运行, 在META-INF里面的MANIFEST.MF里面进行设置你要执行的类
 Manifest-Version: 1.0 Main-Class: UseBlockQueue
 
+=======
+# Tools
+For work easily
+>>>>>>> d18dd71d08889035284fcdd1d66a07583f5c9fcc
