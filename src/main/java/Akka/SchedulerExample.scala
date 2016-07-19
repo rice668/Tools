@@ -1,7 +1,7 @@
 package Akka
 
-import akka.actor.{Actor, ActorSystem, Props}
 
+import akka.actor.{Actor, ActorSystem, Props}
 /**
   * Not finished!
   */
@@ -20,9 +20,5 @@ object SchedulerExample extends App {
   }
   val system = ActorSystem("SimpleSystem")
   val actor = system.actorOf(Props[SchedulerActor], "Actor")
-
-  actor != Count
-  Thread.sleep(2000)
-  system.awaitTermination()
 
 }

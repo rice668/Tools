@@ -6,6 +6,9 @@ import akka.actor.{Props, ActorSystem, Actor}
   * Created by root on 16-7-16.
   */
 object SimpleActorExample extends App {
+
+  case class Message()
+
   class SimpleActor extends Actor {
     def receive = {
       case s:String => println(s)

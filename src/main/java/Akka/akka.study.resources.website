@@ -1,0 +1,14 @@
+http://doc.akka.io/docs/akka/current/scala.html
+
+# Akka is very modular and consists of several JARs containing different features.
+
+    akka-actor – Classic Actors, Typed Actors, IO Actor etc.
+    akka-agent – Agents, integrated with Scala STM
+    akka-camel – Apache Camel integration
+    akka-cluster – Cluster membership management, elastic routers.
+    akka-osgi – utilities for using Akka in OSGi containers
+    akka-osgi-aries – Aries blueprint for provisioning actor systems
+    akka-remote – Remote Actors
+    akka-slf4j – SLF4J Logger (event bus listener)
+    akka-testkit – Toolkit for testing Actor systems
+
