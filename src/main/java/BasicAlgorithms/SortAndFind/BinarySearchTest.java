@@ -1,4 +1,4 @@
-package BasicAlgorithms;
+package BasicAlgorithms.SortAndFind;
 
 import java.util.Arrays;
 
