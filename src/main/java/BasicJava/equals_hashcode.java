@@ -1,33 +1,28 @@
 package BasicJava;
 
 /**
- * 不管是对象数组还是基本类型的数组都扩展于Object类
- * equals方法用于检测一个对象是否等于另外一个对象
- * hashCode是由对象导出的一个整型值
- * hashCode方法定义在Object类中,因此每个对象都有一个默认的散列码，其值为对象的存储地址
- *
  * @author Administrator
  *
  */
 public class equals_hashcode {
     public static void main(String[] args) {
-        Student s1 = new Student("zhangminglei",24,1235678);
+        Student s1 = new Student("zhangminglei",25,1235678);
         Student s2 = new Student("zhangminglei",25,1235678);
-        System.out.println(s1 == s2);
-        System.out.println(s1.hashCode() +"\n"+s2.hashCode());
-        System.out.println(s1.toString()+"\n"+s2);
-        if (s1.equals(s2))
-            System.out.println("==");
-        else
-            System.out.println("!=");
-
-        String s = "OK";
-        String t = new String(s);
-        System.out.println(s.hashCode() +"\n"+ t.hashCode());
-
-        StringBuilder sb = new StringBuilder(s);
-        StringBuilder tb = new StringBuilder(t);
-        System.out.println(sb.hashCode() +"\n"+ tb.hashCode());
+//        System.out.println(s1 == s2);
+        System.out.println(s1.hashCode() +"\n"+s2.hashCode()+" "+s1.toString()+" "+s2.toString());
+//        System.out.println(s1.toString()+"\n"+s2);
+//        if (s1.equals(s2))
+//            System.out.println("==");
+//        else
+//            System.out.println("!=");
+//
+//        String s = "OK";
+//        String t = new String(s);
+//        System.out.println(s.hashCode() +"\n"+ t.hashCode());
+//
+//        StringBuilder sb = new StringBuilder(s);
+//        StringBuilder tb = new StringBuilder(t);
+//        System.out.println(sb.hashCode() +"\n"+ tb.hashCode());
 
     }
 }
