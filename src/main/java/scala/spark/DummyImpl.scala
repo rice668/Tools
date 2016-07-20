@@ -1,11 +1,9 @@
 package scala.spark
 
 import com.github.stuxuhai.jpinyin.{PinyinHelper, PinyinFormat}
-import org.apache.spark.sql.catalyst.expressions.ScalaUdf
+import org.apache.spark.{SparkContext, SparkConf}
 import org.apache.spark.sql.{Row, DataFrame}
 import org.apache.spark.sql.functions._
-import com.ctrip.ml.DiArguments._
-import com.ctrip.ml.tools.Metadata
 import org.apache.spark.sql.types.{ByteType}
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
@@ -14,7 +12,7 @@ import scala.collection.mutable.ArrayBuffer
   * Created by zhangminglei on 2016/3/13.
   * mingleizhang@ctrip.com
   */
-class DummyImpl extends Metadata {
+class DummyImpl {
 
   /**
     *
@@ -34,6 +32,9 @@ class DummyImpl extends Metadata {
       throw new NullPointerException("originalTable or metadataTable is null")
     if (rate < 0 || columnName.length == 0)
       throw new IllegalArgumentException("rate = " + rate)
+    val conf = new SparkConf().setAppName("ExampleOfSpark").setMaster("local[8]")
+    val sc = new SparkContext(conf)
+    val sqlContext = new org.apache.spark.sql.SQLContext(sc)
     val number = 100
     val recordTopN = 10
     val df_originTable = sqlContext.sql("select * from " + originalTable).toDF
