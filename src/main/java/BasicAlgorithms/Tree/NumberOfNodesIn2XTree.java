@@ -80,14 +80,6 @@ public class NumberOfNodesIn2XTree {
         if(root.right!=null)
             mirrorOf2XTree(root.right);
     }
-    /**
-     * 求2X树中2个结点的最大距离
-     * @param root
-     * @return
-     */
-//	public int maxDistanceTree(TreeNode root){
-//
-//	}
 
     public static void main(String[] args) {
         TwoXTree tree = new TwoXTree();
