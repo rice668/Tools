@@ -1,0 +1,30 @@
+
+What is the difference between final, finally and finalize() in Java?
+
+finalize() - method belongs to Object class. The method that is invoked
+while doing the garbage collection of the object. 另外，所有Override finalize
+的对象都会有一个FinalReference的引用，这样的对象在new的时候会进入一个Queue里面，再释放
+资源的时候会从Queue里面一个一个的拿出来，一般的像这样的对象这样做并没有什么太大的问题，但是
+FIS这样的对象在close之后，本不应该这样做了，如果这样做，那么就是GC在工作，导致STW(Stop
+the world),但是具体导致什么问题，还得看你的垃圾收集器具体的类型。G1的话，是STW的问题，如果
+是并发垃圾收集器，可能没有，所以一般的服务器都是都种多种垃圾收集器并存。
+
+finally() - 不管try里面发生了什么事情，比如System.exit(0),都会执行finally里面的动作，比
+如释放锁，释放数据库的连接，关闭流。
+finally {
+      this.readLock.unlock();
+    }
+
+What is the difference between equals() and == ?
+
+== operator is used to compare the references of the objects. 也就是比较２个对象的地址
+equals 比较２个对象是否相等
+
+
+
+
+
+
+
+
+

@@ -1,10 +1,6 @@
 package BasicJava;
 
 /**
- * Created by root on 16-2-17.
- */
-
-/**
  * static val is shared
  */
 
@@ -21,6 +17,7 @@ public class TestStaticVal {
         tom.setAge(10);
         jack.setAge(20);
         tom.setAge(30);
+        jack.setAge(99);
         System.out.println(tom.age);
         System.out.println(jack.age);
     }

@@ -18,8 +18,6 @@ public class TraditionalClient {
     int port = 2000;
     String server = "localhost";
     Socket socket = null;
-    String lineToBeSent;
-
     DataOutputStream output = null;
     FileInputStream inputStream = null;
     int ERROR = 1;

@@ -41,7 +41,7 @@ class Car implements MotorVehicle {
  * about a guy saying, "these classes should look like that, and they have
  * that in common, so fill in the blanks!".
  */
-// I say all motor vehicles should look like this :
+// I say all motor vehicles should look like this :　// 机动车
 abstract class MotorVehicle_ {
 
   int fuel;
