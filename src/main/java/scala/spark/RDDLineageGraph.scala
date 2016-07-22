@@ -2,7 +2,7 @@ package scala.spark
 
 /**
   * Created by root on 16-3-17.
-  * https://jaceklaskowski.gitbooks.io/mastering-apache-spark/content/spark-rdd.html#lineage
+  * https://jaceklaskowski.gitbooks.IO/mastering-apache-spark/content/spark-rdd.html#lineage
   * RDD Lineage Graph
   */
 object RDDLineageGraph extends App with MySparkContext{

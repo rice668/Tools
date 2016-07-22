@@ -5,7 +5,7 @@ import org.apache.spark.{SparkContext, SparkConf}
 /**
   * It's a example for developing Custom SparkListener to monitor DAGScheduler
   *
-  * Reference to : https://jaceklaskowski.gitbooks.io/mastering-apache-spark/content/exercises/spark-exercise-custom-scheduler-listener.html
+  * Reference to : https://jaceklaskowski.gitbooks.IO/mastering-apache-spark/content/exercises/spark-exercise-custom-scheduler-listener.html
   */
 
 object CustomSparkListenerExample {

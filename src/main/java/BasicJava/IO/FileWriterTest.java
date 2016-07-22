@@ -1,4 +1,4 @@
-package BasicJava.io;
+package BasicJava.IO;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -8,7 +8,7 @@ import java.io.FileWriter;
  */
 public class FileWriterTest {
   public static void main(String[] args) throws Exception {
-    FileWriter fileWriter = new FileWriter("/root/Tools/src/main/java/BasicJava/io/filewriter.txt");
+    FileWriter fileWriter = new FileWriter("/root/Tools/src/main/java/BasicJava/IO/filewriter.txt");
     BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
     bufferedWriter.write("do some stuff");
     bufferedWriter.flush();

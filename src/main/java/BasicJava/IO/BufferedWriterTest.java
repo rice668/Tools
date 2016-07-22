@@ -1,4 +1,4 @@
-package BasicJava.io;
+package BasicJava.IO;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -12,7 +12,7 @@ import java.io.OutputStreamWriter;
  */
 public class BufferedWriterTest {
   public static void main(String[] args) throws Exception {
-    File out = new File("/root/Tools/src/main/java/BasicJava/io/BufferedWriter.txt");
+    File out = new File("/root/Tools/src/main/java/BasicJava/IO/BufferedWriter.txt");
     FileOutputStream fos = new FileOutputStream(out);
     BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(fos));
     bufferedWriter.write("Test-BufferedWriter");

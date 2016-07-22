@@ -1,4 +1,4 @@
-package BasicJava.io;
+package BasicJava.IO;
 
 import java.io.File;
 import java.io.FileInputStream;

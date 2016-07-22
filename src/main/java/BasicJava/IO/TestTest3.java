@@ -1,4 +1,4 @@
-package BasicJava.io;
+package BasicJava.IO;
 
 /**
  * Created by root on 16-2-17.
@@ -34,7 +34,7 @@ public class TestTest3 {
         ObjectOutputStream oo =
                 new ObjectOutputStream(new FileOutputStream(new File("serialize.txt")));
         oo.writeObject(object);
-        System.out.println("io Success");
+        System.out.println("IO Success");
         oo.close();
 
     }

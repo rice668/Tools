@@ -1,4 +1,4 @@
-package BasicJava.io;
+package BasicJava.IO;
 
 import com.google.common.base.Charsets;
 
@@ -9,7 +9,7 @@ import java.io.*;
  */
 public class PrintWriterTest {
   public static void main(String[] args) throws Exception {
-    File file = new File("/root/Tools/src/main/java/BasicJava/io/test.txt");
+    File file = new File("/root/Tools/src/main/java/BasicJava/IO/test.txt");
     
     PrintWriter out = new PrintWriter(new BufferedWriter(
             new OutputStreamWriter(new FileOutputStream(file), Charsets.UTF_8)));

@@ -1,4 +1,4 @@
-package BasicJava.io;
+package BasicJava.IO;
 
 /**
  * Created by root on 16-2-17.
