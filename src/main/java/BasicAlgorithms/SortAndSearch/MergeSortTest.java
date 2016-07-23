@@ -1,7 +1,10 @@
-package BasicAlgorithms.SortAndFind;
+package BasicAlgorithms.SortAndSearch;
 
 /**
- * Created by root on 16-7-19.
+ * 合并排序分治法三个步骤：
+ * １．【分解】，将n个元素不断的分成n/2个元素的子序列
+ * ２．【解决】，在n/2元素的子序列上继续递归的分解，也就是调用递归排序递归的分解
+ * ３．【合并】，因为在分解的过程中【一直到不能分解停止】数据并没有什么规律，所以合并２个已经排序的子序列得到结果
  */
 public class MergeSortTest {
 

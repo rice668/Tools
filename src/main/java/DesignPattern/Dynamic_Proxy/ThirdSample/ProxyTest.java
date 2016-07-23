@@ -4,8 +4,6 @@ import org.junit.Test;
 
 /**
  * 动态代理测试类
- * @author zyb
- *
  */
 public class ProxyTest {
 

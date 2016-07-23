@@ -21,7 +21,7 @@ ec：采用ErasureCode来进行容错 raid：HDFS上已经存在的文件的名�
 java -jar javaproject.jar 10 write non-ec xxx 写的话,后面的3个参数其实无所谓,只要有
 就可以,但是不能和读一样 但是一定是要4个参数
 
-* BlockQueue 阻塞队列的实现, UseBlockQueue 多个线程使用阻塞队列,并且先后有序
+* BlockQueueRealize 阻塞队列的实现, UseBlockQueue 多个线程使用阻塞队列,并且先后有序
 
 * UseReentrantLockImpBlockQueue 用可重入锁实现阻塞队列
    UseReenBQ 作为客户端并发的访问它

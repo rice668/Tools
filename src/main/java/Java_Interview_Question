@@ -70,6 +70,45 @@ synchronized机制的话，你无法释放锁，所以采用lock机制，而不�
 
 线程安全的队列，包括：ConcurrentLinkedQueue, ConcurrentLinkedDeque以及BlockingQueue系列
 
+谈谈你对RPC的理解？
+1. RPC首先要解决的就是TCP的连接问题，其次解决寻址问题，此外还有序列化框架的问题
+
+NIO和传统IO（一下简称IO）之间第一个最大的区别是
+
+＠１：IO是面向流的，NIO是面向缓冲区的
+＠２：IO是同步操作，NIO是异步操作。
+
+Java IO面向流意味着每次从流中读一个或多个字节，直至读取所有字节，它们没有被缓存在
+任何地方。此外，它不能前后移动流中的数据。如果需要前后移动从流中读取的数据，需要先
+将它缓存到一个缓冲区。NIO的缓冲导向方法略有不同。数据读取到一个它稍后处理的缓冲区，
+需要时可在缓冲区中前后移动。这就增加了处理过程中的灵活性。但是，还需要检查是否该缓
+冲区中包含所有您需要处理的数据。而且，需确保当更多的数据读入缓冲区时，不要覆盖缓冲
+区里尚未处理的数据。
+
+NIO中的Channel的主要实现有：
+
+FileChannel
+DatagramChannel
+SocketChannel
+ServerSocketChannel
+此外，基于transferTo还可以实现Zero-Copy问题
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,4 +1,4 @@
-package BlockQueue;
+package BasicJava.util;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -6,9 +6,9 @@ package DesignPattern.Dynamic_Proxy;
  */
 public interface Operate {
 
-  public void operateMethod1();
+ void operateMethod1();
 
-  public void operateMethod2();
+  void operateMethod2();
 
-  public void operateMethod3();
+  void operateMethod3();
 }
