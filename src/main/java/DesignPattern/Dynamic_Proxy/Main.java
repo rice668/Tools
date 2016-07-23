@@ -24,13 +24,13 @@ public class Main {
     // create proxy instance
     TimingInvocationHandler timingInvocationHandler =
             new TimingInvocationHandler(new OperateImpl());
-
+    // 创建代理实现由Proxy实现
     Operate operate = (Operate)(Proxy.newProxyInstance(
             Operate.class.getClassLoader(),
             new Class[] {Operate.class},
             timingInvocationHandler));
 
-    // call method of proxy instance
+    // 任务的调用转发通过InvocationHandler实现
     operate.operateMethod1();
     operate.operateMethod2();
     operate.operateMethod3();
