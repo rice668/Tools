@@ -1,4 +1,4 @@
-package BasicJava.Reflection_Ioc;
+package BasicJava.Reflection_IOC_AOP;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 /**
  * Created by root on 16-7-20.
  */
-public interface MLFlowRepository extends
-        JpaRepository<Object, Long>, JpaSpecificationExecutor<Object> {
+public interface ElementRepository
+        extends JpaRepository<Object, Long>, JpaSpecificationExecutor<Object> {
 }

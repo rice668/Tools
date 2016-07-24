@@ -1,9 +1,5 @@
 package BasicJava;
 
-/**
- * @author Administrator
- *
- */
 public class equals_hashcode {
     public static void main(String[] args) {
         Student s1 = new Student("zhangminglei",25,1235678);

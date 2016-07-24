@@ -48,27 +48,56 @@ Main idea: 确保当前的Class文件的结构符合虚拟机的要求，确保�
 
 卸载(Unloading): 也就是垃圾回收掉了。
 
-Java的动态代理
+Java的动态代理-->Spring AOP :http://www.iteye.com/topic/1123293
 在代理模式中，我们创建具有现有对象的对象【代理对象】，以便向外界提供功能接口。
-意图：为其他对象提供一种代理以控制对这个对象的访问。
+意图：为其他对象提供一种代理以控制对这，纵横交流是个很好的话题，但没有一个历史背景或者生活背景作为参照物，很难持续延伸。个对象的访问。
 主要解决：在直接访问对象时带来的问题
+
+Java反射知识-->Spring IoC :http://www.iteye.com/topic/1123081
 
 今天和永城聊了一会技术关于宙斯里面的东西＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 1. 工厂模式，分为简单工厂和抽象工厂，什么时候用工厂呢？数据源
 2. 单例模式，一般用在资源文件，一般实例化一次就OK
+
+接下来需要看看设计模式在hadoop里面的运用
+
+单例模式：
+DelegationTokenRenewer.java
+https://issues.apache.org/jira/browse/HADOOP-9049
+
+Currently, DelegationTokenRenewer is not singleton.
+Each filesystem using it spawns its own DelegationTokenRenewer.
+A single DelegationTokenRenewer should be sufficient for all FileSystems.
+
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+public final class TwitterStreamFactory implements java.io.Serializable
+ static {
+        SINGLETON = new TwitterStreamImpl(ConfigurationContext.getInstance(), TwitterFactory.DEFAULT_AUTHORIZATION);
+    }
+
+工厂模式：
+hadoop和spark里面关于日志模块都用了工厂模式去设计的
+public abstract class LogFactory{}
+ public static Log getLog(Class clazz) throws LogConfigurationException
+        return getFactory().getInstance(clazz);
+
+public final class TwitterStreamFactory implements java.io.Serializable
+ static {
+        SINGLETON = new TwitterStreamImpl(ConfigurationContext.getInstance(), TwitterFactory.DEFAULT_AUTHORIZATION);
+    }
+
 3. 宙斯之前有缓存系统，但是后面去除了，因为无法保持一致性问题，或者代价太大。因为job很多，不停的
 写文件，需要不停的更新缓存，几乎每一分钟更新一次，这样太麻烦了，所以最后取消缓存了。直接去DBA里面
 去读数据。
 4. 如果是设计推荐系统的话，底层是Hbase的话，上层去查询的话，买了一个鼠标，接下来给他推荐一些东西，
 这些东西就可以缓存起来，在Hbase上层加一个Redis缓存体系。
 5. Master和Worker，作业的调度是最主要的，通信机制采用Netty实现RPC机制，RPC的底层实现采用
-Socket和SocketServer进行通信。　　　
+Socket和SocketServer进行通信。
 6. 锁机制，如果Master结点半天没有反应,比如超过一段时间都没有反应，那么就进行unlock，如果采用
 synchronized机制的话，你无法释放锁，所以采用lock机制，而不是采用synchronized机制来进行加锁
 机制。当多个worker去争抢一个Master的时候，当其中一个Worker抢到了，要进行上锁，并向别的结点进
 行宣布，我是Master了。
-
-线程安全的队列，包括：ConcurrentLinkedQueue, ConcurrentLinkedDeque以及BlockingQueue系列
 
 谈谈你对RPC的理解？
 1. RPC首先要解决的就是TCP的连接问题，其次解决寻址问题，此外还有序列化框架的问题
@@ -76,14 +105,7 @@ synchronized机制的话，你无法释放锁，所以采用lock机制，而不�
 NIO和传统IO（一下简称IO）之间第一个最大的区别是
 
 ＠１：IO是面向流的，NIO是面向缓冲区的
-＠２：IO是同步操作，NIO是异步操作。
-
-Java IO面向流意味着每次从流中读一个或多个字节，直至读取所有字节，它们没有被缓存在
-任何地方。此外，它不能前后移动流中的数据。如果需要前后移动从流中读取的数据，需要先
-将它缓存到一个缓冲区。NIO的缓冲导向方法略有不同。数据读取到一个它稍后处理的缓冲区，
-需要时可在缓冲区中前后移动。这就增加了处理过程中的灵活性。但是，还需要检查是否该缓
-冲区中包含所有您需要处理的数据。而且，需确保当更多的数据读入缓冲区时，不要覆盖缓冲
-区里尚未处理的数据。
+＠２：IO是同步操作，NIO是异步操作
 
 NIO中的Channel的主要实现有：
 
