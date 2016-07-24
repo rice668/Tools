@@ -1,4 +1,5 @@
-package BasicAlgorithms.MathRelative;
+package scala
+
 import scala.collection.mutable.ArrayBuffer
 
 /**

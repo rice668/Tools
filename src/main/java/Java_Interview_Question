@@ -1,4 +1,14 @@
 
+字符串第一次只出现一个的字符？如何优化算法使得遍历次数最少？
+方法一：HashMap
+方法二：首先把字符串转换成一个一个的字符，再把字符转成ascii数组的下标进行统计，时间复杂度O(n)
+
+
+
+有一个数组，只利用堆，如何倒序？
+方法一：数组a[i]的优先级是i,把数组的值和优先级存储到堆里面去，按照优先级的大小进行大顶堆输出就好
+方法二：把数组的地址存储到堆中，然后大顶堆，这样也可以
+
 What is the difference between final, finally and finalize() in Java?
 
 finalize() - method belongs to Object class. The method that is invoked

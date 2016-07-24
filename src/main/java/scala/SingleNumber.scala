@@ -1,4 +1,4 @@
-package BasicAlgorithms;
+package scala
 
 /**
   * Created by root on 16-1-12.
@@ -7,11 +7,10 @@ package BasicAlgorithms;
 
 object SingleNumber extends App {
 
-  def singleNumber(nums:Array[Int]): Int = {
-    nums.foldLeft[Int](0)(_^_)
+  def singleNumber(nums: Array[Int]): Int = {
+    nums.foldLeft[Int](0)(_ ^ _)
   }
 
-  val arr = Array(1,2,2,3,3,4,5,6,6,5,4,1,9)
+  val arr = Array(1, 2, 2, 3, 3, 4, 5, 6, 6, 5, 4, 1, 9)
   println(singleNumber(arr))
-
 }

@@ -1,4 +1,4 @@
-package BasicAlgorithms
+package scala
 
 /**
   * Created by root on 16-1-12.
