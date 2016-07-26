@@ -10,7 +10,7 @@ import java.util.Date;
 
 /**
  * Writing to an Object Stream
- * At first, you should get the output stream, and then write to this outputstream is ok.
+ * At first, you should get the output stream, and then write to this output stream is ok.
  */
 public class Test1 {
     public static void main(String[] args) {

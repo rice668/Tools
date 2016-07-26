@@ -6,8 +6,7 @@ import java.util.Stack;
  * 用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。
  * Idea
  * 用一个栈实现队列的push，另一个栈完成队列的Pop，注意在pop的时候，必须等到
- * 先把stack2里面的元素全部pop完之后，才可以继续从stack1里面把元素push到stack2里面
- * @author Administrator
+ * 先把stack2里面的元素全部pop完之后，才可以继续从stack1里面把元素push到stack2里面【这样才符合先进先出特性】
  *
  */
 public class QueueFromStack {

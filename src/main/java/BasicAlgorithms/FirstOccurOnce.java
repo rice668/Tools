@@ -7,9 +7,7 @@ import java.util.HashMap;
  */
 public class FirstOccurOnce {
 
-  /**
-   * 思路：首先把字符串转换成一个一个的字符，再把字符转成ascii数组的下标进行统计，时间复杂度O(n)
-   */
+  // BitMap way.
   public static char firstOccurOnceByASCII(String str) {
     double start = System.currentTimeMillis();
     int[] ascii = new int[200];
@@ -29,7 +27,6 @@ public class FirstOccurOnce {
     return ch;
   }
 
-  // 时间复杂度O(n^2)
   public static char firstOccurOnceByHashMap(String str) {
     double start = System.currentTimeMillis();
     if (str == null)
@@ -56,118 +53,7 @@ public class FirstOccurOnce {
   }
 
   public static void main(String[] args) {
-    String str = "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaz" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaz" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba\n" +
-            "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabazy";
+    String str = "abaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffabaabaccdeffabaccdeffabaccdeffaba";
     System.out.println(FirstOccurOnce.firstOccurOnceByASCII(str));
     System.out.println(FirstOccurOnce.firstOccurOnceByHashMap(str));
   }

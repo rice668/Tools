@@ -24,7 +24,7 @@ public class Main {
     // create proxy instance
     TimingInvocationHandler timingInvocationHandler =
             new TimingInvocationHandler(new OperateImpl());
-    // 创建代理实现由Proxy实现
+    // 创建代理实现由Proxy实现，为接口动态生成代理类
     Operate operate = (Operate)(Proxy.newProxyInstance(
             Operate.class.getClassLoader(),
             new Class[] {Operate.class},
