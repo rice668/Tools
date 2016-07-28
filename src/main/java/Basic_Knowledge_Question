@@ -1,4 +1,42 @@
 
+如何创建一个线程池？线程池的思路
+
+public ThreadPoolExecutor(int corePoolSize,
+                              int maximumPoolSize,
+                              long keepAliveTime,
+                              TimeUnit unit,
+                              BlockingQueue<Runnable> workQueue,
+                              ThreadFactory threadFactory,
+                              RejectedExecutionHandler handler)
+
+corePoolSize: the number of threads to keep in the pool
+workQueue: the queue to use for holding tasks before they are executed
+threadFactory: the factory to use when the executor creates a new thread
+
+然后这些做好之后，用户创建的线程会放入线程队列里面去，接下来就是看你的需求了，如果是FIFO的话，你的队列就用普通的队列
+实现，如果这些线程有优先级，你就可以用优先级队列去实现。
+
+// The queue used for holding tasks and handing off to worker threads.
+// 把这些task交给一个一个worker去执行，例如在分布式系统中，一个进程的运行也是需要找
+// 到一个可利用资源的worker[在我的的测试程序里，测试EC，就是传进去的客户端的数目]，
+// 然后把这个task[also called job]进行调度【基于不同的队列实现，调度方式也有所不同的，
+// 可以实现不同的线程池】放到那个worker上让他去跑；
+private final BlockingQueue<Runnable> workQueue;
+
+// 线程池说白了就是一个线程的集合，HashSet里面存储每一个线程，每一个线程都是一个Runnable接口,你首先得把线程创建出来
+// 用工厂的方式进行创建,创建出来之后，加入到HashSet里面去，这样就构成了一个线程池，这些线程也就是一个一个的Worker资源
+// 然后从存储job的队列里面把作业拿出来，放到这个Worker上面去跑就OKay了。具体怎么拿，看你线程池的实现，如果是FIFO的话，
+// 如果是优先级队列的话，其实这个和分布式系统调度一样的原理。
+
+// 创建一个Worker去处理客户端提交的job
+
+private final HashSet<Worker> workers = new HashSet<Worker>();
+Worker(Runnable firstTask) {
+            setState(-1); // inhibit interrupts until runWorker
+            this.firstTask = firstTask;
+            this.thread = getThreadFactory().newThread(this);
+        }
+
 TEG架构平台部视频通话组的（他是做直播平台开发的）
 视频是走TCP还是UDP? 为什么?
 应该是UDP吧，毕竟视频播放的时候有失真，超时重发，检验数据，流量控制
@@ -69,8 +107,8 @@ Ans: 思路同样，第一次上一个台阶后还剩下f(n-1)种走法，第一
 https://www.ibm.com/developerworks/cn/java/j-lo-classloader/
 加载（Loading）
 1. 通过类名去获取此类的二进制字节流
-【怎么获取这个Class类，并没有说一定要从哪里去获取，
-可以从网络(比如一个输入或者输出流；也可以从数据库反序列化出来;也可以从Class.forName中反射出来)】
+【怎么获取这个Class类，并没有说一定要从哪里去获取，可以从网络(比如一个输入或者输出流；
+也可以从数据库反序列化出来;也可以从Class.forName中反射出来)】
 2. 将这个字节流代表的静态存储结构变成方法区运行时候的数据结构
 3. 在内存中生成一个代表这个类的 java.lang.Class对象，供以后去使用
 
