@@ -1,11 +1,5 @@
 package JVM;
 
-import java.lang.ref.WeakReference;
-
-/**
- * Created by root on 16-7-25.
- */
-
 class Car {
   @Override
   protected void finalize() throws Throwable {
