@@ -34,14 +34,14 @@ threadFactory: the factory to use when the executor creates a new thread
 // The queue used for holding tasks and handing off to worker threads.
 // 把这些task交给一个一个worker去执行(每一个worker就是一个Runnable接口，也就是一个线程)，
 // 例如在分布式系统中，一个进程的运行也是需要找到一个可利用资源的worker
-// 然后把这个task[also called job]进行调度【基于不同的队列实现，调度方式也有所不同的，
+// 然后把这个task进行调度【基于不同的队列实现，调度方式也有所不同的，
 // 可以实现不同的线程池】放到那个worker上让他去跑；
 private final BlockingQueue<Runnable> workQueue;
 
 // 线程池说白了就是一个线程的集合，HashSet里面存储每一个线程，每一个线程都是一个Runnable接口,你首先得把线程创建出来
-// 用工厂的方式进行创建,创建出来之后，加入到HashSet里面去，这样就构成了一个线程池。这些线程也就是一个一个的Worker资源
-// 然后从存储job的队列里面把作业拿出来，放到这个Worker上面去跑就OKay了。具体怎么拿，看你线程池的实现，如果是FIFO的话，
-// 如果是优先级队列的话，其实这个和分布式系统调度一样的原理。
+// 用工厂的方式进行创建【此处为抽象工厂】,创建出来之后，加入到HashSet里面去，这样就构成了一个线程池。这些线程也就是一
+// 个一个的Worker资源然后从存储job的队列里面把作业拿出来，放到这个Worker上面去跑就OKay了。具体怎么拿，看你线程池的
+// 实现，如果是FIFO的话，如果是优先级队列的话，其实这个和分布式系统调度一样的原理。
 
 // 创建一个Worker【线程】去处理客户端提交的job
 
@@ -113,8 +113,8 @@ Ans: 思路同样，第一次上一个台阶后还剩下f(n-1)种走法，第一
 
 谈谈你对分布式缓存的理解mem-cached ?
 1. 首先分布式缓存是为了解决在单机访问到到达瓶颈的时候，所以才产生分布式的缓存
-2. 必须让新上线的服务器对整个已经存在的分布式缓存的集群影响最小【最大限度的降低缓存不命中的概率】【一致性Hash算法可以保持这个特性】
-
+2. 必须让新上线的服务器【此服务器对应几个虚拟结点】对整个已经存在的分布式缓存的集群影响最小
+  【最大限度的降低缓存不命中的概率】【一致性Hash算法可以保持这个特性】
 
 类加载过程?
 深入探讨 Java 类加载器
@@ -167,7 +167,7 @@ public final class TwitterStreamFactory implements java.io.Serializable
     }
 
 工厂模式
-hadoop和spark里面关于日志模块都用了工厂模式去设计的
+hadoop和spark里面关于日志模块都用了工厂模式【抽象工厂】去设计的
 public abstract class LogFactory{}
  public static Log getLog(Class clazz) throws LogConfigurationException
         return getFactory().getInstance(clazz);
@@ -218,7 +218,7 @@ job id? 根据job id找到这个job了？
      --------ESTABLISHED--------
 
     how are you ?
-    I am fine.And you?
+    I am fine.And you ?
     Fine too.
 
 第一次握手【建立连接】，客户端给服务器发包。 此时服务器确认自己可以接收客户端的包，客户端不确认服务器是否接收到了自己发的包。
