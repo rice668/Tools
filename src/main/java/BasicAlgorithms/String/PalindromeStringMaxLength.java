@@ -1,5 +1,8 @@
-package BasicAlgorithms;
+package BasicAlgorithms.String;
 
+/**
+ * 最大回文字符串
+ */
 public class PalindromeStringMaxLength {
     public String reverse(String str) {
         char[] ch = str.toCharArray();
@@ -43,7 +46,6 @@ public class PalindromeStringMaxLength {
     public static void main(String[] args) {
         PalindromeStringMaxLength s = new PalindromeStringMaxLength();
         System.out.println(s.maxLength("levellevael"));
-        System.out.println(s.maxLength(null));
 
     }
 }

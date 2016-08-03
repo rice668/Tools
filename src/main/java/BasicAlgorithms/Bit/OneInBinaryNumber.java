@@ -1,4 +1,4 @@
-package BasicAlgorithms;
+package BasicAlgorithms.Bit;
 
 
 public class OneInBinaryNumber {

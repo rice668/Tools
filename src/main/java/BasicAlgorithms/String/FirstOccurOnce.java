@@ -1,4 +1,4 @@
-package BasicAlgorithms;
+package BasicAlgorithms.String;
 
 import java.util.HashMap;
 

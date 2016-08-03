@@ -1,13 +1,11 @@
-package BasicAlgorithms;
+package BasicAlgorithms.Array;
 
 import java.util.Arrays;
 import java.util.HashMap;
 
 public class FindNumberMoreThanHalfOfArray {
     /**
-     * 方法一,先用HashMap统计每个数字出现的次数,然后再......
-     * @param num
-     * @return
+     * 方法一,先用HashMap统计每个数字出现的次数
      */
     public int majorityElement0(int[] num) {
         int result = 0;

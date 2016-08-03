@@ -1,4 +1,4 @@
-package BasicAlgorithms;
+package BasicAlgorithms.String;
 
 import java.util.Stack;
 
@@ -18,15 +18,15 @@ public class ReverseString {
     public String reverse(String str) {
         if(str == null)
             throw new NullPointerException();
-        char[] ch = new char[str.length()];
+        char[] ch;
         ch = str.toCharArray();
         for (int i = 0, j = ch.length - 1; i <= j; i++, j--) {
             char c = ch[i];
             ch[i] = ch[j];
             ch[j] = c;
         }
-        String newstr = new String(ch);
-        return newstr;
+        str = new String(ch);
+        return str;
     }
     public String reverseStringByStack(String str){
         Stack<Character> stack = new Stack<Character>();
@@ -66,8 +66,8 @@ public class ReverseString {
          * 当然在构造字符串的时候用StringBuilder
          */
         ReverseString rs = new ReverseString();
-        String str1 = "123";
-        System.out.println(rs.reverseStringByRecur(str1));
+        String str1 = "abcd";
+        System.out.println(rs.reverse(str1));
 
     }
 

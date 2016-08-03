@@ -1,4 +1,4 @@
-package BasicAlgorithms;
+package BasicAlgorithms.Bit;
 
 /**
  * 判断机器的位数，一个整型变量
@@ -13,6 +13,6 @@ public class IntegerNumberNoSizeof {
       a <<= 1;
       count++;
     }
-    System.out.println(count);
+    System.out.println(count+1);
   }
 }

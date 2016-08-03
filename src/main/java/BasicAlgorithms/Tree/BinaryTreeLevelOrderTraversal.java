@@ -1,25 +1,12 @@
 package BasicAlgorithms.Tree;
-
-/**
- * Created by root on 16-2-17.
- */
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-/**
- * Created by root on 16-1-5.
- */
-
 public class BinaryTreeLevelOrderTraversal {
-
     /**
      * https://leetcode.com/problems/binary-tree-level-order-traversal/
-     *
-     * @param root
-     * @return
      */
     public static List<List<Integer>> levelOrder(TreeNode root) {
         if (root == null)

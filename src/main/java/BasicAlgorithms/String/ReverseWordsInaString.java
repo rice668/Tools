@@ -1,4 +1,4 @@
-package BasicAlgorithms;
+package BasicAlgorithms.String;
 
 /**
  * 输入一个英文字句,翻转句子中单词的顺序,但单词内字符的顺序不变。
@@ -9,7 +9,7 @@ package BasicAlgorithms;
  */
 public class ReverseWordsInaString {
 
-    public String[]  reverseStringArray(String[] arr) {
+    public String[] reverseStringArray(String[] arr) {
         String[] strArr = new String[arr.length];
         for (int i = 0 ; i < arr.length ; i++) {
             StringBuilder sb = new StringBuilder(arr[i]).reverse();

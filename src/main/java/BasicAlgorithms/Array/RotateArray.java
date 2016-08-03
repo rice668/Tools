@@ -1,30 +1,9 @@
-package BasicAlgorithms;
+package BasicAlgorithms.Array;
 
 /**
  * https://leetcode.com/problems/rotate-array/
  */
 public class RotateArray {
-
-    /**
-     * My Solution:It's so bad.And not work.
-     * @param nums
-     * @param k
-     * @return
-     */
-    public static int[] rotate(int[] nums, int k) {
-        int[] newArray = new int[k];
-        for (int i = 0;i < k; i++) {
-            newArray[i] = nums[i+nums.length - k];
-        }
-        for(int j = k;j>=0;j--) {
-            nums[j+k] = nums[j];
-        }
-        for(int z = 0;z<newArray.length;z++) {
-            nums[z] =newArray[z];
-        }
-        return nums;
-    }
-
 
     static void reverseArray(int[] arr, int start, int end) {
         while (start < end) {

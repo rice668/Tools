@@ -1,5 +1,8 @@
 package BasicAlgorithms;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TransposeMatrix {
     public int[][] transMatrix(int[][] arr) {
         int[][] newArr = new int[arr[0].length][arr.length];

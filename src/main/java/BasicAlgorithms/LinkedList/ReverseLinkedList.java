@@ -1,4 +1,4 @@
-package BasicAlgorithms;
+package BasicAlgorithms.LinkedList;
 
 import java.util.Stack;
 

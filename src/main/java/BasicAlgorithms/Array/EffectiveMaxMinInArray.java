@@ -1,4 +1,4 @@
-package BasicAlgorithms;
+package BasicAlgorithms.Array;
 
 /**
  * Created by root on 16-1-29.

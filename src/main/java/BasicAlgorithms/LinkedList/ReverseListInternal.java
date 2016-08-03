@@ -1,4 +1,5 @@
-package BasicAlgorithms;
+package BasicAlgorithms.LinkedList;
+
 
 
 public class ReverseListInternal {
