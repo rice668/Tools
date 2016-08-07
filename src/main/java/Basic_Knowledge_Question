@@ -1,3 +1,6 @@
+
+
+
 由权值2,8,6,2的叶子生成一颗哈夫曼树,它的带权路径长度是?
 哈夫曼树是：
  18
@@ -44,11 +47,11 @@ public ThreadPoolExecutor(int corePoolSize,
                               RejectedExecutionHandler handler)
 
 corePoolSize: the number of threads to keep in the pool
-workQueue: the queue to use for holding tasks before they are executed
+workQueue: the queue to use for holding tasks【用户自己实现的业务逻辑】 before they are executed
 threadFactory: the factory to use when the executor creates a new thread
 
-然后这些做好之后，用户创建的线程会放入线程队列里面去，接下来就是看你的需求了，如果是FIFO的话，你的队列就用普通的队列
-实现，如果这些线程有优先级，你就可以用优先级队列去实现。
+然后这些做好之后，用户创建的线程会放入线程队列里面去，接下来就是看你的队列处理作业的方式，
+如果是FIFO的话，你的队列就用普通的队列实现，如果这些线程有优先级，你就可以用优先级队列去实现。
 
 // The queue used for holding tasks and handing off to worker threads.
 // 把这些task交给一个一个worker去执行(每一个worker就是一个Runnable接口，也就是一个线程)，
@@ -70,13 +73,6 @@ Worker(Runnable firstTask) { // 如果有作业的话，则用线程工厂去创
             this.firstTask = firstTask;
             this.thread = getThreadFactory().newThread(this);
         }
-
-TEG架构平台部视频通话组的（他是做直播平台开发的）
-视频是走TCP还是UDP? 为什么?
-应该是UDP吧，毕竟视频播放的时候有失真，超时重发，检验数据，流量控制
-TCP丢包重传(这样会发生比较高的延迟【因为TCP首先会去检测哪些包发生了丢失，然后重发所有丢失的包，直到他们都被接收到。】)，
-会带来视频实时性很差的后果吧。
-
 
 海量数据处理
 https://github.com/nonstriater/Learn-Algorithms/blob/master/%E7%AE%97%E6%B3%95%E9%97%AE%E9%A2%98%E9%80%89%E7%BC%96/%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86.md
@@ -100,12 +96,11 @@ way2. 找出40个数字和另外的几个数字的最大数字，然后将这些
 
 What is the difference between final, finally and finalize() in Java?
 
-finalize() - method belongs to Object class. The method is invoked
-while doing the garbage collection of the object. 另外，所有Override finalize
-的对象都会有一个FinalReference的引用，这样的对象在new的时候会进入一个Queue里面，在释放
-资源的时候会从Queue里面一个一个的拿出来。一般的像这样的对象这样做并没有什么太大的问题，但是
-FIS这样的对象在close之后，本不应该这样做了，如果这样做，那么就是GC在工作，导致STW(Stop
-the world)。
+finalize()  The method is invoked while doing the garbage collection of the object.
+另外，所有Override finalize的对象都会有一个FinalReference的引用，这样的对象在new的时候会进入
+一个Queue里面，在释放资源的时候会从Queue里面一个一个的拿出来。一般的像这样的对象这样做并没有什么
+太大的问题，但是FIS这样的对象在close之后，本不应该这样做了，如果这样做，那么就是GC在工作，导致STW
+(Stop the world)。
 
 finally() - 不管try里面发生了什么事情，比如System.exit(0),都会执行finally里面的动作，比
 如释放锁，释放数据库的连接，关闭流。
@@ -117,7 +112,6 @@ What is the difference between equals() and == ?
 
 == operator is used to compare the references of the objects. 也就是比较２个对象的地址
 equals 比较２个对象是否相等
-
 
 一个楼梯有20级，每次走1级或2级，请问从底走到顶一共有多少种走法？
 Ans: 考虑下楼，第一次下一楼后有f(n-1)种走法，或者第一次下２楼有f(n-2)种走法，这样
@@ -142,9 +136,8 @@ https://www.ibm.com/developerworks/cn/java/j-lo-classloader/
 1. 通过类名【packageName.ClassName】去获取此类的二进制字节流
 【怎么获取这个Class类，并没有说一定要从哪里去获取，可以从网络(比如一个输入或者输出流；
 也可以从数据库反序列化出来;也可以从Class.forName中反射出来)】
-
 2. 将这个字节流代表的静态存储结构变成方法区运行时候的数据结构
-3. 在内存中生成一个代表这个类的 java.lang.Class对象，供以后去使用
+3. 在内存中生成一个代表这个类的 java.lang.Class对象【可以通过newInstance去构建对象，也可以通过构造器的方式去构建】，供以后去使用
 
 验证（Verification）
 Main idea: 确保当前的Class文件的结构符合虚拟机的要求，确保不会把虚拟机给弄坏。
@@ -168,7 +161,7 @@ Java反射知识-->Spring IoC :http://www.iteye.com/topic/1123081
 用线程工厂的方式去创建一个线程。
 2. 单例模式，一般用在资源文件，一般实例化一次就OK
 
-接下来需要看看设计模式在hadoop里面的运用 ======
+接下来需要看看设计模式在hadoop里面的运用
 
 单例模式
 DelegationTokenRenewer.java

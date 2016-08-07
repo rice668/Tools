@@ -6,19 +6,18 @@ public class equals_hashcode {
         Student s2 = new Student("zhangminglei",25,1235678);
 //        System.out.println(s1 == s2);
         System.out.println(s1.hashCode() +"\n"+s2.hashCode()+" "+s1.toString()+" "+s2.toString());
-//        System.out.println(s1.toString()+"\n"+s2);
-//        if (s1.equals(s2))
-//            System.out.println("==");
-//        else
-//            System.out.println("!=");
-//
-//        String s = "OK";
-//        String t = new String(s);
-//        System.out.println(s.hashCode() +"\n"+ t.hashCode());
-//
-//        StringBuilder sb = new StringBuilder(s);
-//        StringBuilder tb = new StringBuilder(t);
-//        System.out.println(sb.hashCode() +"\n"+ tb.hashCode());
+        if (s1.equals(s2))
+            System.out.println("==");
+        else
+            System.out.println("!=");
+
+        String s = "OK";
+        String t = new String(s);
+        System.out.println(s.hashCode() +"\n"+ t.hashCode());
+
+        StringBuilder sb = new StringBuilder(s);
+        StringBuilder tb = new StringBuilder(t);
+        System.out.println(sb.hashCode() +"\n"+ tb.hashCode());
 
     }
 }
