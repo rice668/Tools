@@ -30,7 +30,7 @@ public class ScannerTest_Output {
     for (int i = 0; i < n; i++) {
       int a = scanner.nextInt();
       int b = scanner.nextInt();
-      System.out.println("Case " + (i+1) + " " + (a+b) + "\n");
+      System.out.println("Case " + " " + a + " " + b + "\n");
       new BufferedOutputStream(System.out).toString();
     }
   }

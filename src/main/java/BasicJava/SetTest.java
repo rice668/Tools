@@ -1,8 +1,8 @@
 package BasicJava;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import scala.collection.mutable.HashTable;
+
+import java.util.*;
 
 public class SetTest {
 
@@ -18,5 +18,7 @@ public class SetTest {
 
     HashSet<String> s2 = new HashSet<String>(Arrays.asList("a", "b", "c"));
     printSet(s2);
+
+
   }
 }

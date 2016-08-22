@@ -2,22 +2,24 @@ package BasicAlgorithms.SortAndSearch;
 
 public class BubbleSort {
 
-  static void bubble_sort(int[] list) {
-    for (int i = 0; i < list.length; i++) {
-      for (int j = i; j < list.length; j++) {
-        if (list[i] > list[j]) {
-          int temp = list[i];
-          list[i] = list[j];
-          list[j] = temp;
+  static void bubble_sort(int[] arr) {
+    int temp;
+    for (int i = 0; i < arr.length; i++) {
+      for (int j = 0; j < arr.length - 1; j++) {
+        if (arr[j] > arr[j + 1]) {
+          temp = arr[j];
+          arr[j] = arr[j + 1];
+          arr[j + 1] = temp;
         }
       }
     }
   }
+
   public static void main(String[] args) {
-    int[] arr = {5,1,2,8};
+    int[] arr = {6, 2, 4, 1, 5, 9, -9, -3, -7, -7, 0};
     bubble_sort(arr);
-    System.out.println(arr[0]);
-    String str = "123 ";
-    System.out.println(str.trim().length());
+    for (int i : arr) {
+      System.out.print(i + " ");
+    }
   }
 }

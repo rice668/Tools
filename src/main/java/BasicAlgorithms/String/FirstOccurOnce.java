@@ -38,7 +38,7 @@ public class FirstOccurOnce {
         hashMap.put(ch[i], 1);
       } else {
         Integer integer = (Integer) hashMap.get(ch[i]);
-        hashMap.put(ch[i], ++integer);
+        hashMap.put(ch[i], ++integer); // 注意不能写成 integer ++
       }
     }
     char ch_1 = '*';

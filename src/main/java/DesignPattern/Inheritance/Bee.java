@@ -15,6 +15,7 @@ class Bee extends Insect {
 
   public void attack() {
     move();
-    super.attack();
+//    super.attack();
+    System.out.println("Attack"); // 这样写不符合软件工程中重用的思想
   }
 }
