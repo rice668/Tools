@@ -1,6 +1,6 @@
 name age id
-john 15  1
-sam  17  2
-max  23  8
-jack 12  9
-Zap  17  3
+john 15 1
+sam 15 2
+max 23 8
+jack 17 9
+Zap 17 3
