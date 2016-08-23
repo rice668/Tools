@@ -7,11 +7,11 @@ package BasicJava.util;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class testPriorityQueue {
+public class TestPriorityQueue {
   private String name;
   private int population;
 
-  public testPriorityQueue(String name, int population) {
+  public TestPriorityQueue(String name, int population) {
     this.name = name;
     this.population = population;
   }
@@ -29,19 +29,19 @@ public class testPriorityQueue {
   }
 
   public static void main(String args[]) {
-    Comparator<testPriorityQueue> OrderIsdn = new Comparator<testPriorityQueue>() {
+    Comparator<TestPriorityQueue> OrderIsdn = new Comparator<TestPriorityQueue>() {
 
       @Override
-      public int compare(testPriorityQueue o1, testPriorityQueue o2) {
+      public int compare(TestPriorityQueue o1, TestPriorityQueue o2) {
        return o1.getPopulation() - o2.getPopulation();
       }
     };
     // First in not the first out.
-    PriorityQueue<testPriorityQueue> priorityQueue = new PriorityQueue<testPriorityQueue>(OrderIsdn);
-    testPriorityQueue t1 = new testPriorityQueue("t1", 1);
-    testPriorityQueue t3 = new testPriorityQueue("t3", 3);
-    testPriorityQueue t2 = new testPriorityQueue("t2", 2);
-    testPriorityQueue t4 = new testPriorityQueue("t4", 0);
+    PriorityQueue<TestPriorityQueue> priorityQueue = new PriorityQueue<TestPriorityQueue>(10, OrderIsdn);
+    TestPriorityQueue t1 = new TestPriorityQueue("t1", 1);
+    TestPriorityQueue t3 = new TestPriorityQueue("t3", 3);
+    TestPriorityQueue t2 = new TestPriorityQueue("t2", 2);
+    TestPriorityQueue t4 = new TestPriorityQueue("t4", 0);
     priorityQueue.add(t1);
     priorityQueue.add(t3);
     priorityQueue.add(t2);
