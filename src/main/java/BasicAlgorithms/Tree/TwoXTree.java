@@ -46,8 +46,8 @@ public class TwoXTree {
   }
 
   /**
-   * 1
-   * 2       3
+   *       1
+   *   2       3
    * 4   5   6   7
    */
   public TreeNode createAnotherBinaryTree() {
@@ -102,7 +102,8 @@ public class TwoXTree {
   }
 
   /**
-   * 递归的求解2X树的深度,找到递归出口
+   * 二叉树的高度等于根节点左边的二叉树深度和根节点右边的二叉树深度的最大值加上1，当不能再往下遍历的时候就为空了，这是
+   * 递归的出口
    */
   public int depth(TreeNode root) {
     if (root != null) {

@@ -1,4 +1,4 @@
-package BasicAlgorithms.String;
+package BasicAlgorithms.HuaWei;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package BasicAlgorithms.String;
+package BasicAlgorithms.HuaWei;
 
 import java.util.Scanner;
 
@@ -10,6 +10,7 @@ import java.util.Scanner;
  * hello world
  * 输出例子:
  * 5
+ * http://www.nowcoder.com/practice/8c949ea5f36f422594b306a2300315da?tpId=37&tqId=21224&rp=&ru=/ta/huawei&qru=/ta/huawei/question-ranking
  */
 public class LastWordLengthInString {
   public static void main(String[] args) {
