@@ -24,12 +24,15 @@ public class CommonStringLength {
     String y;
     int aLen = a.length();
     int bLen = b.length();
-    if (a.charAt(aLen - 1) == b.charAt(bLen - 1)) {
+    if (aLen == 0 || bLen == 0) {
+      return "";
+    } else if (a.charAt(aLen - 1) == b.charAt(bLen - 1)) {
       return LCString(a.substring(0, aLen - 1), b.substring(0, bLen - 1)) + b.charAt(bLen - 1);
     } else {
-
+      return "";
     }
   }
+
 
 //  public static int getCommonStrLength(String str1, String str2) {
 //    int len1 = str1.length();
