@@ -1,13 +1,16 @@
 package BasicAlgorithms.HuaWei;
 
+import java.util.Scanner;
+
 /**
  * Created by mingleizhang on 2016/8/25.
  * Unlike substrings, subsequences are not required to occupy consecutive positions within the original sequences.
+ * 要注意连续公共字串和公共字串的区别
  * https://en.wikipedia.org/wiki/Longest_common_subsequence_problem
  */
 public class LongestCommonSubsequence {
 
-  static String LCS(String a, String b) {
+  static String LCSeq(String a, String b) {
     String x;
     String y;
     int aLen = a.length();
@@ -15,10 +18,10 @@ public class LongestCommonSubsequence {
     if (aLen == 0 || bLen == 0) {
       return "";
     } else if (a.charAt(aLen - 1) == b.charAt(bLen - 1)) {
-      return LCS(a.substring(0, aLen - 1), b.substring(0, bLen - 1)) + b.charAt(bLen - 1);
+      return LCSeq(a.substring(0, aLen - 1), b.substring(0, bLen - 1)) + b.charAt(bLen - 1);
     } else {
-      x = LCS(a, b.substring(0, bLen - 1));
-      y = LCS(a.substring(0, aLen - 1), b);
+      x = LCSeq(a, b.substring(0, bLen - 1));
+      y = LCSeq(a.substring(0, aLen - 1), b);
     }
     return (x.length() > y.length()) ? x : y;
   }
@@ -26,7 +29,7 @@ public class LongestCommonSubsequence {
   /**
    * http://www.sanfoundry.com/java-program-longest-common-subsequence-algorithm/
    */
-  static String longestSubString(String str1, String str2) {
+  static String longestSubSeq(String str1, String str2) {
     int l1 = str1.length();
     int l2 = str2.length();
     int[][] arr = new int[l1 + 1][l2 + 1];
@@ -57,10 +60,11 @@ public class LongestCommonSubsequence {
 
 
   public static void main(String[] args) {
-    String a = "computeryuii";
-    String b = "houseboatasyasasuasaiasasi";
-    double startTime = System.currentTimeMillis();
-    System.out.println(longestSubString(a, b));
-    System.out.println(System.currentTimeMillis() - startTime);
+    Scanner scanner = new Scanner(System.in);
+    while (scanner.hasNext()) {
+      String a = scanner.nextLine();
+      String b = scanner.nextLine();
+      System.out.println(longestSubSeq(a, b));
+    }
   }
 }
