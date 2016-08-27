@@ -64,7 +64,7 @@ public class LongestCommonSubsequence {
     while (scanner.hasNext()) {
       String a = scanner.nextLine();
       String b = scanner.nextLine();
-      System.out.println(longestSubSeq(a, b));
+      System.out.println(LCSeq(a, b));
     }
   }
 }

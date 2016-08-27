@@ -11,14 +11,14 @@ public class CommonStringLength {
     Scanner sc = new Scanner(System.in);
     String str1 = "";
     String str2 = "";
-    while(sc.hasNext()) {
+    while (sc.hasNext()) {
       str1 = sc.next();
       str2 = sc.next();
-      System.out.println(LCString(str1, str2).length());
+      System.out.println(getCommonStrLength(str1, str2));
     }
   }
 
-  // error
+  // error 递归解决这个问题有点麻烦
   static String LCString(String a, String b) {
     String x;
     String y;
@@ -29,38 +29,43 @@ public class CommonStringLength {
     } else if (a.charAt(aLen - 1) == b.charAt(bLen - 1)) {
       return LCString(a.substring(0, aLen - 1), b.substring(0, bLen - 1)) + b.charAt(bLen - 1);
     } else {
-      return "";
+      return "error";
     }
   }
 
-
-//  public static int getCommonStrLength(String str1, String str2) {
-//    int len1 = str1.length();
-//    int len2 = str2.length();
-//    int[][] dp = new int[len1+1][len2+1];
-//    for(int i=0;i<=len1;i++) {
-//      for(int j=0;j<=len2;j++) {
-//        dp[i][j] = 0;
-//      }
-//    }
-//    for(int i=1;i<=len1;i++) {
-//      for(int j=1;j<=len2;j++) {
-//        if(str1.charAt(i-1) == str2.charAt(j-1)){
-//          dp[i][j] = dp[i-1][j-1] + 1;
-//        }else{
-//          dp[i][j] = 0;   //区别在这儿
-//        }
-//      }
-//    }
-//    int max = 0;
-//    for(int i=0;i<=len1;i++){
-//      for(int j=0;j<=len2;j++){
-//        if(max < dp[i][j])
-//          max = dp[i][j];
-//      }
-//    }
-//    return max;
-//  }
+  public static int getCommonStrLength(String str1, String str2) {
+    int len1 = str1.length();
+    int len2 = str2.length();
+    int[][] dp = new int[len1 + 1][len2 + 1];
+    for (int i = 0; i <= len1; i++) {
+      for (int j = 0; j <= len2; j++) {
+        dp[i][j] = 0;
+      }
+    }
+    for (int i = 1; i <= len1; i++) {
+      for (int j = 1; j <= len2; j++) {
+        if (str1.charAt(i - 1) == str2.charAt(j - 1)) {
+          dp[i][j] = dp[i - 1][j - 1] + 1;
+        } else {
+          dp[i][j] = 0;   //区别在这儿
+        }
+      }
+    }
+    for (int i = 0; i <= len1; i++) {
+      for (int j = 0; j <= len2; j++) {
+        System.out.print(dp[i][j] + " ");
+      }
+      System.out.println();
+    }
+    int max = 0;
+    for (int i = 0; i <= len1; i++) {
+      for (int j = 0; j <= len2; j++) {
+        if (max < dp[i][j])
+          max = dp[i][j];
+      }
+    }
+    return max;
+  }
 //
 //  private static int getCommonStrLengthByAnother(String s1, String s2) {
 //    int ans = 0;
