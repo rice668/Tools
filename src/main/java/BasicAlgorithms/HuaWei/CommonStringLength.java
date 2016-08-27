@@ -7,31 +7,6 @@ import java.util.Scanner;
  * http://www.nowcoder.com/practice/98dc82c094e043ccb7e0570e5342dd1b?tpId=37&tqId=21298&rp=&ru=/ta/huawei&qru=/ta/huawei/question-ranking
  */
 public class CommonStringLength {
-  public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
-    String str1 = "";
-    String str2 = "";
-    while (sc.hasNext()) {
-      str1 = sc.next();
-      str2 = sc.next();
-      System.out.println(getCommonStrLength(str1, str2));
-    }
-  }
-
-  // error 递归解决这个问题有点麻烦
-  static String LCString(String a, String b) {
-    String x;
-    String y;
-    int aLen = a.length();
-    int bLen = b.length();
-    if (aLen == 0 || bLen == 0) {
-      return "";
-    } else if (a.charAt(aLen - 1) == b.charAt(bLen - 1)) {
-      return LCString(a.substring(0, aLen - 1), b.substring(0, bLen - 1)) + b.charAt(bLen - 1);
-    } else {
-      return "error";
-    }
-  }
 
   public static int getCommonStrLength(String str1, String str2) {
     int len1 = str1.length();
@@ -51,12 +26,6 @@ public class CommonStringLength {
         }
       }
     }
-    for (int i = 0; i <= len1; i++) {
-      for (int j = 0; j <= len2; j++) {
-        System.out.print(dp[i][j] + " ");
-      }
-      System.out.println();
-    }
     int max = 0;
     for (int i = 0; i <= len1; i++) {
       for (int j = 0; j <= len2; j++) {
@@ -66,20 +35,15 @@ public class CommonStringLength {
     }
     return max;
   }
-//
-//  private static int getCommonStrLengthByAnother(String s1, String s2) {
-//    int ans = 0;
-//    int len1 = s1.length();
-//    int len2 = s2.length();
-//    String  max = (len1 > len2 ? s1 : s2);
-//    String  min = (s1 == max ? s2 : s1);
-//    for (int i = 0; i <= min.length(); i++) {
-//      for (int j = 0; j <=min.length()-i; j++) {
-//        if(max.contains(min.substring(j, j+i)))
-//          ans=i;
-//      }
-//    }
-//    return ans;
-//  }
 
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    String str1 = "";
+    String str2 = "";
+    while (sc.hasNext()) {
+      str1 = sc.nextLine();
+      str2 = sc.nextLine();
+      System.out.println(getCommonStrLength(str1, str2));
+    }
+  }
 }
