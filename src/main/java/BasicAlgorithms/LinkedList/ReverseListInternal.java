@@ -43,11 +43,11 @@ public class ReverseListInternal {
     if (q == null) {
       return p;
     } else {
-      pHead = reverseLinkedListByRecur(q);
+      pHead = reverseLinkedListByRecur(q); // 记录子序列的新的头结点
     }
     q.next = p;
     p.next = null;
-    return pHead;
+    return pHead; // 返回新的子序列的头结点
   }
 
 
