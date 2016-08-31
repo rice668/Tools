@@ -1,38 +1,37 @@
 package BasicAlgorithms.HuaWei;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
  * Created by mingleizhang on 2016/8/24.
  * http://www.nowcoder.com/practice/196534628ca6490ebce2e336b47b3607?tpId=37&tqId=21229&rp=&ru=/ta/huawei&qru=/ta/huawei/question-ranking
+ * 蘑菇鸡面试题
  */
 public class PrimeFactor {
 
-  public static String getResult(long ulDataInput) {
-    StringBuilder str=new StringBuilder();
-    int index=2;
-    while(index <= ulDataInput) {
-      if(ulDataInput % index == 0) {
-        if(index == ulDataInput) {
-          str.append(index).append(" ");
-          break;
-        } else {
-          str.append(index).append(" ");
-          ulDataInput = ulDataInput/index;
-        }
+  public static List<Integer> Fenjie(long num) {
+    List<Integer> list = new ArrayList<Integer>();
+    for (int i = 2; i <= num; ) {
+      if (num % i == 0) {
+        num = num / i;
+        list.add(i);
       } else {
-        index++;
+        i++;
       }
     }
-    return str.toString();
+    return list;
   }
 
   public static void main(String[] args) {
-    Scanner sc=new Scanner(System.in);
+    Scanner sc = new Scanner(System.in);
     while (sc.hasNext()) {
-      long params=sc.nextLong();
-      String result =getResult(params);
-      System.out.println(result);
+      long params = sc.nextLong();
+      List result = Fenjie(params);
+      for (int i = 0; i < result.size(); i++) {
+        System.out.print(result.get(i) + " "); // 必须写在一个行上才可以通过
+      }
     }
   }
 }

@@ -1,8 +1,5 @@
 package BasicAlgorithms.HuaWei;
 
-import breeze.util.ArrayUtil;
-
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**

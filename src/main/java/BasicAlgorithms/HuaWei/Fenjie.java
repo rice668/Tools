@@ -1,7 +1,8 @@
-package BasicJava;
+package BasicAlgorithms.HuaWei;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * Created by zhangminglei on 2016/8/31.
@@ -23,9 +24,13 @@ public class Fenjie {
   }
 
   public static void main(String[] args) {
-    List<Integer> list = Fenjie.fenjie(1);
-    for (Integer integer : list) {
-      System.out.println(integer);
+    Scanner scanner = new Scanner(System.in);
+    while (scanner.hasNext()) {
+      int temp = scanner.nextInt();
+      List<Integer> list = Fenjie.fenjie(temp);
+      for (Integer integer : list) {
+        System.out.print(integer + " ");
+      }
     }
   }
 }
