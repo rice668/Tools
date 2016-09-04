@@ -58,20 +58,15 @@ public class ReverseListInternal {
     ListNode q = pHead.next;
     ListNode r = pHead.next.next;
     pHead.next = null;
-    try {
       while (q != null) {
         q.next = p;
         p = q;
         q = r;
+        if (q == null) break;
         r = r.next;
       }
-    } catch (NullPointerException e) {
-
-    } finally {
       return p;
-    }
   }
-
 
   public static void main(String[] args) {
     ListNode list = new ListNode(1);
