@@ -1,6 +1,5 @@
 package BasicAlgorithms.LinkedList;
 
-
 public class ReverseListInternal {
 
   public void printLinkedList(ListNode list) {
@@ -43,11 +42,34 @@ public class ReverseListInternal {
     if (q == null) {
       return p;
     } else {
-      pHead = reverseLinkedListByRecur(q); // 记录子序列的新的头结点
+      pHead = reverseLinkedListByRecur(q);
     }
     q.next = p;
     p.next = null;
-    return pHead; // 返回新的子序列的头结点
+    return pHead;
+  }
+
+
+  /**
+   * Myself implement this
+   */
+  public ListNode reverseLinkedListByMySelf(ListNode pHead) {
+    ListNode p = pHead;
+    ListNode q = pHead.next;
+    ListNode r = pHead.next.next;
+    pHead.next = null;
+    try {
+      while (q != null) {
+        q.next = p;
+        p = q;
+        q = r;
+        r = r.next;
+      }
+    } catch (NullPointerException e) {
+
+    } finally {
+      return p;
+    }
   }
 
 
@@ -57,8 +79,9 @@ public class ReverseListInternal {
     list.next.next = new ListNode(3);
     list.next.next.next = new ListNode(4);
     list.next.next.next.next = new ListNode(5);
+    list.next.next.next.next.next = new ListNode(6);
     ReverseListInternal r = new ReverseListInternal();
-    ListNode rl = r.reverseLinkedListByRecur(list);
+    ListNode rl = r.reverseLinkedListByMySelf(list);
     r.printLinkedList(rl);
   }
 }
