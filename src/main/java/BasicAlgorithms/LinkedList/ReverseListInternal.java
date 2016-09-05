@@ -62,10 +62,26 @@ public class ReverseListInternal {
         q.next = p;
         p = q;
         q = r;
-        if (q == null) break;
+        if (q == null)
+          break;
         r = r.next;
       }
       return p;
+  }
+
+  /**
+   * http://www.programcreek.com/2014/05/leetcode-reverse-linked-list-java/
+   */
+  public ListNode reverseList(ListNode head) {
+    if(head==null || head.next == null)
+      return head;
+    //get second node
+    ListNode second = head.next;
+    //set first's next to be null
+    head.next = null;
+    ListNode rest = reverseList(second);
+    second.next = head;
+    return rest;
   }
 
   public static void main(String[] args) {
@@ -76,7 +92,7 @@ public class ReverseListInternal {
     list.next.next.next.next = new ListNode(5);
     list.next.next.next.next.next = new ListNode(6);
     ReverseListInternal r = new ReverseListInternal();
-    ListNode rl = r.reverseLinkedListByMySelf(list);
+    ListNode rl = r.reverseList(list);
     r.printLinkedList(rl);
   }
 }
