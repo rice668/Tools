@@ -37,13 +37,26 @@ public class Fenjie {
     }
     return list;
   }
-
+  // Prime factorization by While loop
+  public List fenjieByWhile(int num) {
+    List<Integer> list = new ArrayList<Integer>();
+    int i = 2;
+    while (num > 1) {
+      if (num % i == 0) {
+        list.add(i);
+        num = num / i;
+      } else {
+        i++;
+      }
+    }
+    return list;
+  }
 
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
     while (scanner.hasNext()) {
       int temp = scanner.nextInt();
-      List<Integer> list = new Fenjie().fenjieByRecur(temp);
+      List<Integer> list = new Fenjie().fenjieByWhile(temp);
       for (Integer integer : list) {
         System.out.print(integer + " ");
       }
