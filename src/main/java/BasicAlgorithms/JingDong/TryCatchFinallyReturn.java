@@ -1,4 +1,4 @@
-package BasicAlgorithms.JD;
+package BasicAlgorithms.JingDong;
 
 /**
  * Created by zhangminglei on 2016/9/6.

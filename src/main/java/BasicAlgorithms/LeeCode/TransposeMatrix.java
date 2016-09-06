@@ -1,7 +1,4 @@
-package BasicAlgorithms;
-
-import java.util.ArrayList;
-import java.util.List;
+package BasicAlgorithms.LeeCode;
 
 public class TransposeMatrix {
     public int[][] transMatrix(int[][] arr) {

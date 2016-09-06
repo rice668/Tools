@@ -1,4 +1,4 @@
-package BasicAlgorithms;
+package BasicAlgorithms.LeeCode;
 
 
 import java.util.Stack;

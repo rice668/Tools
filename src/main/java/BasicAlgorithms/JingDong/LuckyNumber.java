@@ -1,4 +1,4 @@
-package BasicAlgorithms.JD;
+package BasicAlgorithms.JingDong;
 
 import java.util.Scanner;
 

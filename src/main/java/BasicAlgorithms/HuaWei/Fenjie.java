@@ -13,7 +13,7 @@ public class Fenjie {
 
   public static List<Integer> fenjie(int num) {
     List<Integer> list = new ArrayList<Integer>();
-    for (int i = 2; i <= num; ) {
+    for (int i = 2; i <= Math.sqrt(num); ) {
       if (num % i == 0) {
         num = num / i;
         list.add(i);
@@ -56,7 +56,7 @@ public class Fenjie {
     Scanner scanner = new Scanner(System.in);
     while (scanner.hasNext()) {
       int temp = scanner.nextInt();
-      List<Integer> list = new Fenjie().fenjieByWhile(temp);
+      List<Integer> list = new Fenjie().fenjie(temp);
       for (Integer integer : list) {
         System.out.print(integer + " ");
       }
