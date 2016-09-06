@@ -6,7 +6,7 @@ import java.util.Scanner;
  * Created by mingleizhang on 2016/8/27.
  * http://www.nowcoder.com/practice/440f16e490a0404786865e99c6ad91c9?tpId=37&tqId=21238&rp=&ru=/ta/huawei&qru=/ta/huawei/question-ranking
  *
- * public class Main{
+ * public class LuckyNumber{
  public static void main(String[] args){
  Scanner scan = new Scanner(System.in);
  int n = scan.nextInt();

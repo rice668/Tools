@@ -19,5 +19,7 @@ public class TryCatchFinallyReturn {
 
   public static void main(String[] args) {
     System.out.println(test());
+    char[] chars = {'h','e'};
+    String str = "he";
   }
 }

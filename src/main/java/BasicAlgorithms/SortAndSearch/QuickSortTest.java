@@ -53,6 +53,28 @@ public class QuickSortTest {
     return high;
   }
 
+  public int[] partitionByQi(int[] array, int low, int high) {
+    int pivot = array[low];
+    while (low < high) {
+      while (high > low && array[high] >= pivot) {
+        high--;
+      }
+      swap(array, low, high);
+      while (high > low && array[low] <= pivot) {
+        low++;
+      }
+      swap(array, low, high);
+    }
+    return array;
+  }
+
+  public void swap(int[] array, int low, int high) {
+    int temp;
+    temp = array[high];
+    array[high] = array[low];
+    array[low] = temp;
+  }
+
   public int[] quickSort(int[] arr, int p, int q) {
     if (p < q) {
       int pivot = partitionByTiger(arr, p, q);
@@ -63,8 +85,8 @@ public class QuickSortTest {
   }
 
   public static void main(String[] args) {
-    int[] arr = {2, 8, 7, 1, 3, 5, 6, 4, 4, -9, -8};
-    for (int i : new QuickSortTest().quickSort(arr, 0, arr.length - 1)) {
+    int[] arr = {1, 1, 1, -9, 18};
+    for (int i : new QuickSortTest().partitionByQi(arr, 0, arr.length - 1)) {
       System.out.print(i + " ");
     }
   }
