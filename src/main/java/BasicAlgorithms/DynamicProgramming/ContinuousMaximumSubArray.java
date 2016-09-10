@@ -28,7 +28,7 @@ public class ContinuousMaximumSubArray {
     */
   public static int maxSubArray(int[] nums) {
     for (int i = 1; i < nums.length; i++) {
-      if (nums[i - 1] >= 0) { // 如果以第i-1结尾的数组的值大于等于0
+      if (nums[i - 1] >= 0) { // 如果第i-1数组的值大于等于0
         nums[i] = nums[i - 1] + nums[i]; // 那么以i结尾的数组的值就替换为num[i-1] + nums[i]
       } else {
         nums[i] = nums[i];
