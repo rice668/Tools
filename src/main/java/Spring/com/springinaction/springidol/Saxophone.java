@@ -10,8 +10,4 @@ public class Saxophone implements Instrument {
     System.out.println("TOOT TOOT TOOT");
   }
 
-  @Override
-  public String toString() {
-    return "Belongs to Saxophone";
-  }
 }

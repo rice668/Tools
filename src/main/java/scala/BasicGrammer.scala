@@ -10,7 +10,7 @@ object BasicGrammer {
   (x:Int, y:Int) => x + y
 
   // Define function you want, and apply it
-  def power(x:Int):Int = if (x == 0) 1 else 2*power(x-1)
+  def power(x:Int):Int = {if (x == 0) 1 else 2*power(x-1)}
   def id(x:Int):Int = x
   def square(x:Int):Int = x * x
 

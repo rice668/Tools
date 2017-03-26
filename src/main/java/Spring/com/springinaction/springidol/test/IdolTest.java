@@ -1,5 +1,6 @@
 package Spring.com.springinaction.springidol.test;
 
+import Spring.com.springinaction.springidol.Instrumentalist;
 import Spring.com.springinaction.springidol.Interface.Performer;
 import org.junit.Test;
 import org.junit.runner.RunWith;
